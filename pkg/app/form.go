@@ -24,6 +24,5 @@ func BindAndValid(c *gin.Context, form interface{}) (int, int) {
 		MarkErrors(valid.Errors)
 		return http.StatusBadRequest, e.INVALID_PARAMS
 	}
-
 	return http.StatusOK, e.SUCCESS
 }

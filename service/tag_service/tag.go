@@ -37,6 +37,12 @@ func (t *Tag) ExistByID() (bool, error) {
 }
 
 func (t *Tag) Add() error {
+	cache := cache_service.Tag{}
+	key := cache.GetTagsKey()
+	_, err := gredis.Delete(key)
+	if err != nil {
+		return err
+	}
 	return models.AddTag(t.Name, t.State, t.CreatedBy)
 }
 
@@ -65,8 +71,8 @@ func (t *Tag) GetAll() ([]models.Tag, error) {
 	)
 
 	cache := cache_service.Tag{
-		State: t.State,
-		Name: t.Name,
+		State:    t.State,
+		Name:     t.Name,
 		PageNum:  t.PageNum,
 		PageSize: t.PageSize,
 	}
@@ -150,7 +156,6 @@ func (t *Tag) Import(r io.Reader) error {
 	if err != nil {
 		return err
 	}
-
 	rows := xlsx.GetRows("标签信息")
 	for irow, row := range rows {
 		if irow > 0 {
@@ -162,7 +167,6 @@ func (t *Tag) Import(r io.Reader) error {
 			models.AddTag(data[1], 1, data[2])
 		}
 	}
-
 	return nil
 }
 

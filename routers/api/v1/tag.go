@@ -6,11 +6,11 @@ import (
 	"github.com/EDDYCJY/go-gin-example/pkg/setting"
 	"github.com/EDDYCJY/go-gin-example/pkg/util"
 	"github.com/EDDYCJY/go-gin-example/service/tag_service"
+	"github.com/MindorksOpenSource/Go-Log"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
 	"net/http"
 )
-
 
 // @Summary Get multiple article tags
 // @Produce  json
@@ -20,6 +20,13 @@ import (
 // @Failure 500 {object} app.Response
 // @Router /api/v1/tags [get]
 func GetTags(c *gin.Context) {
+	golog.ConfigureTimer()
+	golog.ConfigureCallingFunction()
+	for i := 0; i <= 1000; i++ {
+		//fmt.Print("A basic primitive debug log.")
+		golog.D("A basic primitive debug log.")
+	}
+
 	appG := app.Gin{C: c}
 	name := c.Query("name")
 	state := -1
@@ -50,7 +57,6 @@ func GetTags(c *gin.Context) {
 		"total": count,
 	})
 }
-
 
 type AddTagForm struct {
 	Name      string `form:"name" valid:"Required;MaxSize(100)"`

@@ -4,8 +4,10 @@ go 1.13
 
 require (
 	github.com/360EntSecGroup-Skylar/excelize v1.4.1
+	github.com/MindorksOpenSource/Go-Log v0.0.0-20181118110108-6bbeddb1fc76
 	github.com/alauda/go-redis-client v0.0.0-20190714061509-7d5ca20d0820 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
+	github.com/apenella/go-ansible v1.1.0 // indirect
 	github.com/astaxie/beego v1.12.3
 	github.com/chasex/redis-go-cluster v1.0.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
