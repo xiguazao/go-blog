@@ -18,6 +18,36 @@ info:
   title: Golang Gin API
   version: "1.0"
 paths:
+  /api/v1/ansible:
+    post:
+      parameters:
+      - description: Connection
+        in: query
+        name: connection
+        required: true
+        type: string
+      - description: User
+        in: query
+        name: user
+        required: true
+        type: string
+      - description: Inventory
+        in: query
+        name: inventory
+        required: true
+        type: string
+      - description: Playbooks
+        in: query
+        name: playbooks
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: Ansible 执行
   /api/v1/tags:
     get:
       parameters:
