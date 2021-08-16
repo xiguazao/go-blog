@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+
+  tasks:
+    - name: simple-ansibleplaybook 
+      debug:
+        msg: Your are running 'simple-ansibleplaybook' example
+    - name: simple-ansibleplaybook-ls
+      command: /usr/bin/touch /tmp/wei1
