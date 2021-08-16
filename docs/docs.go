@@ -144,6 +144,50 @@ var doc = `{
                     }
                 }
             }
+        },
+        "/start_trace": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "start trace",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/stop_trace": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "stop trace",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

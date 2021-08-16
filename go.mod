@@ -11,6 +11,7 @@ require (
 	github.com/astaxie/beego v1.12.3
 	github.com/chasex/redis-go-cluster v1.0.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/gin-contrib/pprof v1.3.0
 	github.com/gin-gonic/gin v1.7.2
 	github.com/gitstliu/go-redis-cluster v0.0.0-20190226073442-d274d87c0bfa // indirect
 	github.com/go-ini/ini v1.62.0

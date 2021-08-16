@@ -22,10 +22,6 @@ import (
 func GetTags(c *gin.Context) {
 	golog.ConfigureTimer()
 	golog.ConfigureCallingFunction()
-	for i := 0; i <= 1000; i++ {
-		//fmt.Print("A basic primitive debug log.")
-		golog.D("A basic primitive debug log.")
-	}
 
 	appG := app.Gin{C: c}
 	name := c.Query("name")
@@ -51,7 +47,7 @@ func GetTags(c *gin.Context) {
 		appG.Response(http.StatusInternalServerError, e.ERROR_COUNT_TAG_FAIL, nil)
 		return
 	}
-
+	//time.Sleep(time.Second*3)
 	appG.Response(http.StatusOK, e.SUCCESS, map[string]interface{}{
 		"lists": tags,
 		"total": count,
